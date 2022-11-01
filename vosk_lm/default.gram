@@ -1,0 +1,166 @@
+#JSGF V1.0;
+grammar default;
+
+import <number.number>;
+
+<keyword> = (
+    computer
+    | naomi
+    | magicvoice
+);
+
+<calculate> = (
+    what is <number> plus <number>
+);
+
+<clock> = (
+    what time is it
+    | tell me the time
+    | what is the time
+);
+
+<checkemail> = (
+    read my email
+    | check my inbox
+    | do i have any email
+    | are there any new emails
+);
+
+<hackernews> = (
+    (read | tell) [me] [the] hacker news
+    | what is [happening] in hacker news
+    | what are today's hacker news stories
+);
+
+<joke> = (
+    tell me a knock knock joke
+    | do you know any knock knock jokes
+    | can you tell me a knock knock joke
+    | tell me a joke
+    | make me laugh
+);
+
+<life> = (
+    what is the meaning of life
+    | what is the ultimate answer to the ultimate question of life the universe and everything
+);
+
+<playlist> = (
+    npr
+    | hadestown
+    | buglove
+);
+
+<mpdcontrol> = (
+    play ( something | music | <playlist> )
+    play next
+    play previous
+    pause
+    resume
+    stop playing
+    ( increase | decrease ) volume
+);
+
+<newskeyword> = (
+    news
+    | headlines
+);
+
+<news> = (
+    ( read | tell ) [me] the <newskeyword>
+    | what is [happening] in the <newskeyword>
+    | what are today's headlines
+    | what is today's news
+);
+
+<shutdown> = (
+    shutdown
+    | shut down
+    | turn yourself off
+);
+
+<stop> = (
+    stop
+    | shut up
+);
+
+<Forecast> = (
+    weather
+    | forecast
+    | weather report
+    | weather forecast
+);
+
+<Location> = (
+    lewisburg
+    | orlando
+);
+
+<WeatherTypePresent> = (
+    snowing
+    | raining
+    | windy
+    | sleeting
+    | sunny
+);
+
+<WeatherTypeFuture> = (
+    snow
+    | rain
+    | be windy
+    | sleet
+    | be sunny
+);
+
+<Time> = (
+    morning
+    | afternoon
+    | evening
+    | night
+);
+
+<Day> = (
+    today
+    | tomorrow
+    | sunday
+    | monday
+    | tuesday
+    | wednesday
+    | thursday
+    | friday
+    | saturday
+);
+
+<wwis_weather> = (
+    what is the <Forecast> in <Location>
+    | what is the <Forecast> for <Day>
+    | what is the <Forecast> for <Location>
+    | what is the <Forecast> for <Location> on <Day>
+    | what is the <Forecast> for <Location> on <Day> <Time>
+    | is it <WeatherTypePresent> [ in <Location> ]
+    | will it <WeatherTypeFuture> this <Time>
+    | will it <WeatherTypeFuture> <Day>
+    | will it <WeatherTypeFuture> <Day> <Time>
+    | when will it <WeatherTypeFuture>
+    | when will it <WeatherTypeFuture> in <Location>
+);
+
+<command> = (
+    <clock>
+    | <checkemail>
+    | <hackernews>
+    | <joke>
+    | <life>
+    | <mpdcontrol>
+    | <news>
+    | <shutdown>
+    | <stop>
+    | <wwis_weather>
+);
+
+public <default> = (
+    <keyword> <command>
+    | <command> <keyword>
+);
+
+
