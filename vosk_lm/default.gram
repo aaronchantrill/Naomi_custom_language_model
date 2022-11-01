@@ -146,7 +146,8 @@ import <number.number>;
 );
 
 <command> = (
-    <clock>
+    <calculate>
+    | <clock>
     | <checkemail>
     | <hackernews>
     | <joke>

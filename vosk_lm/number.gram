@@ -2,15 +2,15 @@
 
 grammar number;
 
-<ones> = ( ONE | TWO | THREE | FOUR | FIVE | SIX | SEVEN | EIGHT | NINE );
-<one_to_ten> = ( <ones> | TEN );
-<oneteens> = (<one_to_ten> | ( ELEVEN | TWELVE | THIRTEEN | FOURTEEN | FIFTEEN | SIXTEEN | SEVENTEEN | EIGHTEEN | NINETEEN ));
-<tens> = ( TWENTY | THIRTY | FORTY | FIFTY | SIXTY | SEVENTY | EIGHTY | NINETY );
-<hundred> = HUNDRED;
-<magnitude> = ( THOUSAND | MILLION | BILLION | QUADRILLION );
+<ones> = ( one | two | three | four | five | six | seven | eight | nine );
+<one_to_ten> = ( <ones> | ten );
+<oneteens> = (<one_to_ten> | ( eleven | twelve | thirteen | fourteen | fifteen | sixteen | seventeen | eighteen | nineteen ));
+<tens> = ( twenty | thirty | forty | fifty | sixty | seventy | eighty | ninety );
+<hundred> = hundred;
+<magnitude> = ( thousand | million | billion | quadrillion );
 <trailing> = ( <tens> | <tens> <ones> );
-<leadinghundred> = A | <ones>;
-<leadinglasthundred> = ( A | <oneteens> | <tens> | <tens> <ones> );
+<leadinghundred> = a | <ones>;
+<leadinglasthundred> = ( a | <oneteens> | <tens> | <tens> <ones> );
 <leadingmagnitude> = [<leadinghundred> <hundred>] <trailing>;
 public <number> = ( 
     <oneteens> |
@@ -18,10 +18,10 @@ public <number> = (
     <tens> <ones> |
     <leadinglasthundred> <hundred> |
     <leadinglasthundred> <hundred> [<trailing>] |
-    <leadingmagnitude> QUADRILLION [<leadingmagnitude> TRILLION] [<leadingmagnitude> BILLION] [<leadingmagnitude> MILLION] [<leadingmagnitude> THOUSAND] [<leadinglasthundred> <hundred> [<trailing>]] |
-    [<leadingmagnitude> QUADRILLION] <leadingmagnitude> TRILLION [<leadingmagnitude> BILLION] [<leadingmagnitude> MILLION] [<leadingmagnitude> THOUSAND] [<leadinglasthundred> <hundred> [<trailing>]] |
-    [<leadingmagnitude> QUADRILLION] [<leadingmagnitude> TRILLION] <leadingmagnitude> BILLION [<leadingmagnitude> MILLION] [<leadingmagnitude> THOUSAND] [<leadinglasthundred> <hundred> [<trailing>]] |
-    [<leadingmagnitude> QUADRILLION] [<leadingmagnitude> TRILLION] [<leadingmagnitude> BILLION] <leadingmagnitude> MILLION [<leadingmagnitude> THOUSAND] [<leadinglasthundred> <hundred> [<trailing>]] |
-    [<leadingmagnitude> QUADRILLION] [<leadingmagnitude> TRILLION] [<leadingmagnitude> BILLION] [<leadingmagnitude> MILLION] <leadingmagnitude> THOUSAND [<leadinglasthundred> <hundred> [<trailing>]]
+    <leadingmagnitude> quadrillion [<leadingmagnitude> trillion] [<leadingmagnitude> billion] [<leadingmagnitude> million] [<leadingmagnitude> thousand] [<leadinglasthundred> <hundred> [<trailing>]] |
+    [<leadingmagnitude> quadrillion] <leadingmagnitude> trillion [<leadingmagnitude> billion] [<leadingmagnitude> million] [<leadingmagnitude> thousand] [<leadinglasthundred> <hundred> [<trailing>]] |
+    [<leadingmagnitude> quadrillion] [<leadingmagnitude> trillion] <leadingmagnitude> billion [<leadingmagnitude> million] [<leadingmagnitude> thousand] [<leadinglasthundred> <hundred> [<trailing>]] |
+    [<leadingmagnitude> quadrillion] [<leadingmagnitude> trillion] [<leadingmagnitude> billion] <leadingmagnitude> million [<leadingmagnitude> thousand] [<leadinglasthundred> <hundred> [<trailing>]] |
+    [<leadingmagnitude> quadrillion] [<leadingmagnitude> trillion] [<leadingmagnitude> billion] [<leadingmagnitude> million] <leadingmagnitude> thousand [<leadinglasthundred> <hundred> [<trailing>]]
 );
     
